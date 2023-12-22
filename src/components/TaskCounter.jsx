@@ -1,9 +1,9 @@
-function TaskCounter(){
+function TaskCounter({ total, completed }){
 
     return(
 
         <h1>
-            You are completed 3 of 5 Tasks
+            You are completed { completed } of { total } Tasks
         </h1>
 
     );

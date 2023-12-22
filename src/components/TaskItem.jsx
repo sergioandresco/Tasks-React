@@ -1,11 +1,11 @@
-function TaskItem(){
+function TaskItem({ text, completed }){
     return(
   
       <li>
   
         <span>V</span>
   
-        <p>Creation of the tasks project in React</p>
+        <p>{ text }</p>
   
         <span>X</span>
   
