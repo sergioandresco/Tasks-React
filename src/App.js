@@ -3,8 +3,6 @@ import { TaskSearch } from './components/TaskSearch';
 import { TaskList } from './components/TaskList';
 import { TaskItem } from './components/TaskItem';
 import { CreateTaskButton } from './components/CreateTaskButton';
-import './App.css';
-import React from 'react';
 
 const defaultTasks = [
   { text: 'This is a first test', completed: true },
@@ -16,9 +14,9 @@ const defaultTasks = [
 
 function App() {
   return (
-    <React.Fragment>
+    <>
     
-      <TaskCounter />
+      <TaskCounter total = {5} completed = {2} />
       <TaskSearch />
 
       <TaskList>
@@ -37,7 +35,7 @@ function App() {
 
       <CreateTaskButton />
 
-    </React.Fragment>
+    </>
   );
 }
 

@@ -1,6 +1,8 @@
+import '../styles/CreateTaskButton.css'
+
 function CreateTaskButton(){
     return(
-        <button>Create a new Task</button>
+        <button className="CreateTaskButton">+</button>
     )
 }
 
