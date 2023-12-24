@@ -3,4 +3,10 @@
     text-align: center;
     margin: 0;
     padding: 48px;
+    font-weight: normal;
+    color: #05fe06;
+}
+
+.message_task span{
+    font-weight: bold;
 }

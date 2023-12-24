@@ -1,7 +1,9 @@
+import '../styles/TaskList.css'
+
 function TaskList(props){
     return(
 
-        <ul>
+        <ul className="TaskList">
             {props.children}
         </ul>
 

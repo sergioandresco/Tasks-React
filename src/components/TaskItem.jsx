@@ -1,13 +1,15 @@
+import '../styles/TaskItem.css'
+
 function TaskItem({ text, completed }){
     return(
   
-      <li>
+      <li className="TaskItem">
   
-        <span>V</span>
+        <span className={`Icon Icon-check ${completed && "Icon-check--activate"}`}>V</span>
   
-        <p>{ text }</p>
+        <p className={`TaskItem-p ${completed && "TaskItem-p--complete"}`}>{ text }</p>
   
-        <span>X</span>
+        <span className="Icon Icon-delete">X</span>
   
       </li>
   

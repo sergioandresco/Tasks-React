@@ -1,7 +1,9 @@
+import '../styles/TaskSearch.css'
+
 function TaskSearch(){
     return(
 
-        <input placeholder="Cut the onion" />
+        <input placeholder="Search a task" className="TaskSearch"/>
 
     )
 }
