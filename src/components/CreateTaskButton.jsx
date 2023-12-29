@@ -2,7 +2,7 @@ import '../styles/CreateTaskButton.css'
 
 function CreateTaskButton(){
     return(
-        <button className="CreateTaskButton">+</button>
+        <button className="CreateTaskButton" onClick={()=>console.log('you clicked')}>+</button>
     )
 }
 
