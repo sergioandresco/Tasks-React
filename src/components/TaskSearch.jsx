@@ -1,11 +1,7 @@
 import React from 'react';
 import '../styles/TaskSearch.css';
 
-function TaskSearch(){
-
-    const [searchValue, setSearchValue] = React.useState('');
-
-    console.log('The users are search ' + searchValue);
+function TaskSearch({ searchValue, setSearchValue }){
 
     return(
 
