@@ -23,6 +23,15 @@ function App() {
 
   const totalTasks = task.length;
 
+  const searchedTasks = task.filter(
+    (task) => {
+      const taskText = task.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+
+      return taskText.includes(searchText);
+    }
+  );
+
   console.log('The users are search ' + searchValue);
 
   return (
@@ -40,7 +49,7 @@ function App() {
       <TaskList>
 
         {
-          defaultTasks.map(tasks => (
+          searchedTasks.map(tasks => (
             <TaskItem 
               key={tasks.text}
               text={tasks.text}
