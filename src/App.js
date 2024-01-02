@@ -32,7 +32,23 @@ function App() {
     }
   );
 
-  console.log('The users are search ' + searchValue);
+  const completeTask = (text) => {
+    const newTasks = [...task];
+    const taskIndex = newTasks.findIndex(
+      (task) => task.text === text
+    );
+    newTasks[taskIndex].completed = true;
+    setTasks(newTasks);
+  };
+
+  const deleteTask = (text) => {
+    const newTasks = [...task];
+    const taskIndex = newTasks.findIndex(
+      (task) => task.text === text
+    );
+    newTasks.splice(taskIndex, 1)
+    setTasks(newTasks);
+  };
 
   return (
     <>
@@ -49,11 +65,13 @@ function App() {
       <TaskList>
 
         {
-          searchedTasks.map(tasks => (
+          searchedTasks.map((task) => (
             <TaskItem 
-              key={tasks.text}
-              text={tasks.text}
-              completed={tasks.completed}
+              key={task.text}
+              text={task.text}
+              completed={task.completed}
+              onComplete={() => completeTask(task.text)}
+              onDelete={() => deleteTask(task.text)}
             />
           ))
         }
