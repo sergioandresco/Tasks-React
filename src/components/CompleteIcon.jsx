@@ -1,11 +1,12 @@
 import { TaskIcon } from './TaskIcon';
 import React from "react";
 
-function CompleteIcon(){
+function CompleteIcon({ completed, onComplete }){
     return(
         <TaskIcon 
             type="check"
-            color="gray"
+            color={ completed ? 'green' : 'gray' }
+            onClick={onComplete}
         />
     )
 }

@@ -12,7 +12,10 @@ function TaskItem({ text, completed, onComplete, onDelete }){
           onClick={onComplete}
         >V</span> */}
 
-        <CompleteIcon />
+        <CompleteIcon 
+          completed={completed}
+          onComplete={onComplete} 
+        />
   
         <p className={`TaskItem-p ${completed && "TaskItem-p--complete"}`}>{ text }</p>
   
@@ -21,7 +24,9 @@ function TaskItem({ text, completed, onComplete, onDelete }){
           onClick={onDelete}
         >X</span> */}
 
-        <DeleteIcon />
+        <DeleteIcon 
+          onDelete={onDelete}
+        />
   
       </li>
   
