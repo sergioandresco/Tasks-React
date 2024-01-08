@@ -5,17 +5,35 @@ import { TaskItem } from './components/TaskItem';
 import { CreateTaskButton } from './components/CreateTaskButton';
 import React from 'react';
 
-const defaultTasks = [
-  { text: 'This is a first test', completed: true },
-  { text: 'This is a second test', completed: false },
-  { text: 'This is a third test', completed: false },
-  { text: 'This is a fourth test', completed: false},
-  { text: 'This is a fiveth test', completed: true},
-]
+// const defaultTasks = [
+//   { text: 'This is a first test', completed: true },
+//   { text: 'This is a second test', completed: false },
+//   { text: 'This is a third test', completed: false },
+//   { text: 'This is a fourth test', completed: false},
+//   { text: 'This is a fiveth test', completed: true},
+// ]
+
+// localStorage.setItem('TASKS_V1', JSON.stringify(defaultTasks));
+// localStorage.removeItem('TASKS_V1');
 
 function App() {
 
-  const [task, setTasks] = React.useState(defaultTasks);
+  const localStorageTasks = localStorage.getItem('TASKS_V1');
+
+  let parsedTasks;
+
+  if(localStorageTasks){
+
+    parsedTasks = JSON.parse(localStorageTasks);
+
+  }else{
+
+    localStorage.setItem('TASKS_V1', JSON.stringify([]));
+    parsedTasks = [];
+
+  }
+
+  const [task, setTasks] = React.useState(parsedTasks);
 
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -32,13 +50,19 @@ function App() {
     }
   );
 
+  const saveTasks = (newTasks) => {
+    localStorage.setItem('TASKS_V1', JSON.stringify(newTasks));
+
+    setTasks(newTasks);
+  }
+
   const completeTask = (text) => {
     const newTasks = [...task];
     const taskIndex = newTasks.findIndex(
       (task) => task.text === text
     );
     newTasks[taskIndex].completed = true;
-    setTasks(newTasks);
+    saveTasks(newTasks);
   };
 
   const deleteTask = (text) => {
@@ -47,7 +71,7 @@ function App() {
       (task) => task.text === text
     );
     newTasks.splice(taskIndex, 1)
-    setTasks(newTasks);
+    saveTasks(newTasks);
   };
 
   return (
