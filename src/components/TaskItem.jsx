@@ -1,3 +1,5 @@
+import { CompleteIcon } from './CompleteIcon'
+import { DeleteIcon } from './DeleteIcon'
 import '../styles/TaskItem.css'
 
 function TaskItem({ text, completed, onComplete, onDelete }){
@@ -5,17 +7,21 @@ function TaskItem({ text, completed, onComplete, onDelete }){
   
       <li className="TaskItem">
   
-        <span 
+        {/* <span 
           className={`Icon Icon-check ${completed && "Icon-check--activate"}`}
           onClick={onComplete}
-        >V</span>
+        >V</span> */}
+
+        <CompleteIcon />
   
         <p className={`TaskItem-p ${completed && "TaskItem-p--complete"}`}>{ text }</p>
   
-        <span 
+        {/* <span 
           className="Icon Icon-delete"
           onClick={onDelete}
-        >X</span>
+        >X</span> */}
+
+        <DeleteIcon />
   
       </li>
   
