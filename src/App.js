@@ -16,24 +16,37 @@ import React from 'react';
 // localStorage.setItem('TASKS_V1', JSON.stringify(defaultTasks));
 // localStorage.removeItem('TASKS_V1');
 
-function App() {
+function useLocalStorage(itemName, initialValue){
 
-  const localStorageTasks = localStorage.getItem('TASKS_V1');
+  const localStorageItem = localStorage.getItem(itemName);
 
-  let parsedTasks;
+  let parsedItem;
 
-  if(localStorageTasks){
+  if(localStorageItem){
 
-    parsedTasks = JSON.parse(localStorageTasks);
+    parsedItem = JSON.parse(localStorageItem);
 
   }else{
 
-    localStorage.setItem('TASKS_V1', JSON.stringify([]));
-    parsedTasks = [];
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
 
   }
 
-  const [task, setTasks] = React.useState(parsedTasks);
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  }
+
+  return [item, saveItem];
+
+}
+
+function App() {
+
+  const [task, saveTasks] = useLocalStorage('TASKS_V1', []);
 
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -49,12 +62,6 @@ function App() {
       return taskText.includes(searchText);
     }
   );
-
-  const saveTasks = (newTasks) => {
-    localStorage.setItem('TASKS_V1', JSON.stringify(newTasks));
-
-    setTasks(newTasks);
-  }
 
   const completeTask = (text) => {
     const newTasks = [...task];
