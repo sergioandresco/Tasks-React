@@ -1,4 +1,4 @@
-import { TaskIcon } from './TaskIcon';
+import { TaskIcon } from './index';
 import React from "react";
 
 function DeleteIcon({ onDelete }){

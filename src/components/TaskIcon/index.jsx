@@ -1,6 +1,6 @@
 import { FaCheck } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
-import '../styles/TaskIcon.css'
+import '../../styles/TaskIcon.css'
 
 //Aquí creamos una variable con varios objetos, para poder renderizarlos dependiendo del tipo, todo esto de manerá dinamica
 const iconTypes = {

@@ -1,4 +1,4 @@
-import '../styles/CreateTaskButton.css'
+import '../../styles/CreateTaskButton.css'
 
 function CreateTaskButton(){
     return(

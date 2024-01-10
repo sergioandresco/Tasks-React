@@ -1,4 +1,4 @@
-import '../styles/TaskCounter.css'
+import '../../styles/TaskCounter.css'
 
 function TaskCounter({ total, completed }){
 

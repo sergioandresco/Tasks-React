@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/TaskSearch.css';
+import '../../styles/TaskSearch.css';
 
 function TaskSearch({ searchValue, setSearchValue }){
 
