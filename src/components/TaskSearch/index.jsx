@@ -1,7 +1,13 @@
 import React from 'react';
 import '../../styles/TaskSearch.css';
+import { TaskContext } from '../TaskContext';
 
-function TaskSearch({ searchValue, setSearchValue }){
+function TaskSearch(){
+
+    const {
+        searchValue,
+        setSearchValue,
+    } = React.useContext(TaskContext);
 
     return(
 

@@ -1,8 +1,17 @@
 import '../../styles/CreateTaskButton.css'
 
-function CreateTaskButton(){
+function CreateTaskButton({ setOpenModal }){
+    const handleClick = () => {
+        setOpenModal((state) => !state);
+    };
+
     return(
-        <button className="CreateTaskButton" onClick={()=>console.log('you clicked')}>+</button>
+        <button 
+            className="CreateTaskButton" 
+            onClick={handleClick}
+        >
+                +
+        </button>
     )
 }
 
