@@ -1,28 +1,54 @@
 import React from "react";
+import {TaskContext} from '../TaskContext'
 import './TaskForm.css';
 
 function TaskForm(){
+    const {
+        addTask,
+        setOpenModal,
+    } = React.useContext(TaskContext);
+
+    const [newTaskValue, setNewTaskValue] = React.useState('');
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        addTask(newTaskValue);
+        setOpenModal(false)
+    };
+
+    const onCancel = () => {
+        setOpenModal(false);
+    };
+
+    const onChange = (event) => {
+        setNewTaskValue(event.target.value);
+    };
+
     return(
-        <form onSubmit={(event) => {
-            event.preventDefault();
-        }}>
+        <form onSubmit={onSubmit}>
             <label>Write a new task</label>
             <textarea 
                 placeholder="Enter the text"
+                value={newTaskValue}
+                onChange={onChange}
             />
 
             <div className="TaskForm-buttonContainer">
+
                 <button 
                     type="submit"
-                    class="btn"><i class="animation"
+                    className="btn"><i className="animation"
                 >
-                    </i>Add<i class="animation"></i>
+                    </i>Add<i className="animation"></i>
                 </button>
+
                 <button 
-                    type=""
-                    class="btn"><i class="animation"
+                    type="button"
+                    className="btn"
+                    onClick={onCancel}
                 >
-                    </i>Cancel<i class="animation"></i>
+                    <i className="animation">
+                    </i>Cancel<i className="animation"></i>
                 </button>
             </div>
             

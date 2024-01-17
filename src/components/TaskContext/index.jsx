@@ -28,6 +28,15 @@ function TaskProvider({ children }){
           return taskText.includes(searchText);
         }
       );
+
+      const addTask = (text) => {
+        const newTasks = [...task];
+        newTasks.push({
+          text,
+          completed: false
+        });
+        saveTasks(newTasks);
+      }
     
       const completeTask = (text) => {
         const newTasks = [...task];
@@ -52,6 +61,7 @@ function TaskProvider({ children }){
             loading,
             error,
             totalTasks,
+            addTask,
             completedTasks,
             searchValue,
             setSearchValue,
