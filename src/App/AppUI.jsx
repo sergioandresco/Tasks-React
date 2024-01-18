@@ -1,4 +1,5 @@
 import React from 'react';
+import './AppUI.css'
 import { TaskCounter } from '../components/TaskCounter';
 import { TaskSearch } from '../components/TaskSearch';
 import { TaskList } from '../components/TaskList';
@@ -10,6 +11,7 @@ import { CreateTaskButton } from '../components/CreateTaskButton';
 import { Modal } from '../components/Modal'
 import { TaskContext } from '../components/TaskContext';
 import { TaskForm } from '../components/TaskForm';
+import LogoSerch from '../Images/serchtec-logo.png';
 
 
 function AppUI(){
@@ -59,6 +61,11 @@ function AppUI(){
               <TaskForm />
             </Modal>
           )}
+
+          <div className='container-description'>
+            <span className='container-description--name'>Developed by Sergio Cobos</span>
+            <img src={LogoSerch} alt="Descripción de la imagen" className='container-description--img'/>
+          </div>
     
         </>
     );
