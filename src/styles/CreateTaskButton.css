@@ -23,3 +23,12 @@
 .CreateTaskButton:hover{
     transform: rotate(224deg);
 }
+
+@media (min-width: 0px) and (max-width: 991.98px) {
+    
+    .CreateTaskButton{
+        max-height: 55px;
+        width: 48px;
+    }
+
+}
